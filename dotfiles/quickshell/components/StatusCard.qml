@@ -1,3 +1,12 @@
 import QtQuick
+import Quickshell.Services.UPower
+import ".."
 
-Clock {}
+Row {
+    Battery {
+        visible: UPower.displayDevice.isLaptopBattery
+    }
+    Clock {}
+
+    spacing: Theme.spacing
+}
