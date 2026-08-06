@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  programs.zsh.enable = true;
+
   users.users.frederickampsup = {
     isNormalUser = true;
     description = "Frederick Ziola";
