@@ -16,6 +16,8 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 
+vim.opt.shell = vim.fn.exepath("zsh")
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "h", "hpp", "hxx", "h++",
     		"c", "cpp", "cxx", "c++" },

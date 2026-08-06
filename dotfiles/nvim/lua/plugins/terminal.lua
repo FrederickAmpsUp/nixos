@@ -8,6 +8,7 @@ return {
                 float_ops = {
                     border = "rounded",
                 },
+                shell = vim.fn.exepath("zsh"),
             })
 
             vim.keymap.set("n", "<C-\\>", "<cmd>ToggleTerm<cr>")

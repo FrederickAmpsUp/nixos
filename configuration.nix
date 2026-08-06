@@ -91,12 +91,17 @@
 
     eza
 
+    pavucontrol
+    brightnessctl
+
     (discord.override {
         commandLineArgs = [
             "--enable-features=UseOzonePlatform"
             "--ozone-platform=wayland"
 	];
     })
+
+    spotify
   ];
 
   programs.zsh.enable = true;
