@@ -22,6 +22,17 @@ return {
             end, {
               desc = "Show symbol information",
             })
+
+            vim.diagnostic.config({
+              virtual_lines = {
+                current_line = true,
+              },
+              virtual_text = false,
+              signs = true,
+              underline = true,
+              severity_sort = true,
+              update_in_insert = false,
+            })
         end,
     },
 }
