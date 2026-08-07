@@ -23,6 +23,10 @@ return {
               desc = "Show symbol information",
             })
 
+            vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, {
+              desc = "Code Action",
+            })
+
             vim.diagnostic.config({
               virtual_lines = {
                 current_line = true,
