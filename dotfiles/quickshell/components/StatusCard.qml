@@ -11,7 +11,9 @@ Row {
         visible: UPower.displayDevice.isLaptopBattery
     }
 
-    Separator {}
+    Separator {
+        visible: UPower.displayDevice.isLaptopBattery
+    }
  
     Clock {}
 
