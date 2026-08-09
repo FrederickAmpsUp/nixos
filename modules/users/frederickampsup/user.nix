@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, isDesktop, ... }:
 
 {
   programs.zsh.enable = true;
@@ -13,6 +13,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+
+    extraSpecialArgs = {
+        isDesktop = isDesktop;
+    };
 
     users.frederickampsup = import ./home.nix;
   };

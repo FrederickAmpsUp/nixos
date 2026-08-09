@@ -1,6 +1,10 @@
 {
   networking.hostName = "frederickampsup-laptop";
 
+  home-manager.extraSpecialArgs = {
+    isDesktop = false;
+  };
+
   imports = [
     ./hardware-configuration.nix
 
