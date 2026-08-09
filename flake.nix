@@ -9,6 +9,15 @@
   };
 
   outputs = { nixpkgs, home-manager, ...} : {
+    nixosConfigurations.frederickampsup-desktop =
+      nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        modules = [
+          ./hosts/frederickampsup-desktop/configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
     nixosConfigurations.frederickampsup-laptop =
       nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
