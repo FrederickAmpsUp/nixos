@@ -5,10 +5,17 @@ import Quickshell.Hyprland
 import ".."
 
 Row {
+    required property var screen
+
     spacing: 0
 
     Repeater {
-        model: Hyprland.workspaces
+        model: ScriptModel {
+            // Only show workspaces on this screen
+            values: Hyprland.workspaces.values.filter(
+                ws => ws.monitor && ws.monitor.name === screen.name
+            )
+        }
 
         delegate: Rectangle {
             required property var modelData

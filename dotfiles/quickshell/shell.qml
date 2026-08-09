@@ -5,8 +5,6 @@ import QtQuick
 import "components"
 
 ShellRoot {
-    Bar {
-        anchors.top: true
-    }
+    Bar {}
     Launcher {}
 }
