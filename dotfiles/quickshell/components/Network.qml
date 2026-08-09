@@ -15,8 +15,6 @@ StyledText {
             }
         }
 
-        console.log(bestDevice);
-
         if (bestDevice === null) return "disconnected";
 
         return bestDevice.networks.values[0].name;
