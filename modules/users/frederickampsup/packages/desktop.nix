@@ -13,6 +13,7 @@
     quickshell
 
     pavucontrol
+    playerctl
 
     discord
     spotify
