@@ -6,7 +6,7 @@
   users.users.frederickampsup = {
     isNormalUser = true;
     description = "Frederick Ziola";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     shell = pkgs.zsh;
   };
 
