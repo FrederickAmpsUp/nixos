@@ -14,6 +14,7 @@
 
     ./packages/base.nix
     ./packages/desktop.nix
+    ./packages/screensnip.nix
     ./packages/dev.nix
   ];
 
