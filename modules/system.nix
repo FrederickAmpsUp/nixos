@@ -33,5 +33,10 @@
 
   programs.nix-ld.enable = true;
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   system.stateVersion = "26.05";
 }

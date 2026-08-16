@@ -20,6 +20,15 @@
     ];
   };
 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  services.blueman.enable = true;
+
   programs.steam.enable = true;
   programs.gamemode.enable = true;
 }
