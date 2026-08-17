@@ -6,6 +6,9 @@ return {
             vim.lsp.config("clangd", {})
             vim.lsp.enable("clangd")
 
+            vim.lsp.config("slangd", {})
+            vim.lsp.enable("slangd")
+
             vim.lsp.config("rust_analyzer", {})
             vim.lsp.enable("rust_analyzer")
 
