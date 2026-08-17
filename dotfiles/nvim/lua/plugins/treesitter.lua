@@ -8,6 +8,7 @@ return {
             require("nvim-treesitter").install({
                 "c",
                 "cpp",
+                "slang",
                 "lua",
                 "python",
                 "rust",
