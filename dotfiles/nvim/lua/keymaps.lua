@@ -24,7 +24,7 @@ local function git_commit()
   vim.fn.prompt_setprompt(buf, "> ")
 
   local function commit()
-    local message = vim.fn.getline(1):sub(2)
+    local message = vim.fn.getline(1):sub(3)
 
     if message == "" then
       return
