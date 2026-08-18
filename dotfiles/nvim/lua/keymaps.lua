@@ -72,3 +72,30 @@ vim.keymap.set("n", "<leader>vp", function()
     end)
   end)
 end, { desc = "Git push" })
+
+vim.keymap.set("v", "<leader>ms", function()
+  local start_line = vim.fn.line("'<")
+  local end_line = vim.fn.line("'>")
+  local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+
+  local all_have_slashes = true
+
+  for _, line in ipairs(lines) do
+    if line:match("%S") and not line:match("\\%s*$") then
+      all_have_slashes = false
+      break
+    end
+  end
+
+  for i, line in ipairs(lines) do
+    if line:match("%S") then
+      if all_have_slashes then
+        lines[i] = line:gsub("%s*\\%s*$", "")
+      else
+        lines[i] = line:gsub("%s+$", "") .. " \\"
+      end
+    end
+  end
+
+  vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, lines)
+end)
