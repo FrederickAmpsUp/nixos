@@ -45,6 +45,7 @@ local menu        = "hyprlauncher"
 --
 hl.on("hyprland.start", function () 
   hl.exec_cmd("qs")
+  --hl.exec_cmd("gromit-mpx")
 end)
 
 
@@ -362,3 +363,17 @@ hl.window_rule({
 })
 
 hl.config({ xwayland = { force_zero_scaling = true } })
+
+--hl.window_rule({
+--    match = { class = "Gromit-mpx" },
+--    no_blur = true,
+--    no_shadow = true
+--})
+
+
+--hl.bind("F9", hl.dsp.exec_cmd("gromit-mpx --toggle"))
+--hl.bind("SHIFT+F9", hl.dsp.exec_cmd("gromit-mpx --clear"))
+--hl.bind("F8", hl.dsp.exec_cmd("gromit-mpx --undo"))
+--hl.bind("SHIFT+F8", hl.dsp.exec_cmd("gromit-mpx --redo"))
+--hl.bind("CONTROL+F9", hl.dsp.exec_cmd("gromit-mpx --visibility"))
+

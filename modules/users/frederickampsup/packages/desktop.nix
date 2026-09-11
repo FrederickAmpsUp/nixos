@@ -6,6 +6,8 @@
     then ../../../../dotfiles/hypr/monitors_desktop.lua
     else ../../../../dotfiles/hypr/monitors_laptop.lua;
 
+  services.gromit-mpx.enable = true;
+
   home.packages = with pkgs; [
     chromium
     kitty
