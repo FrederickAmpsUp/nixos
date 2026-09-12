@@ -17,7 +17,9 @@
     pavucontrol
     playerctl
 
-    discord
+    (discord.override {
+        withVencord = true;
+    })
     spotify
   ];
 }
