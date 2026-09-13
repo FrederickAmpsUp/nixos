@@ -3,25 +3,41 @@ return {
         "andweeb/presence.nvim",
         config = function()
             require("presence").setup({
-                -- General options
-                auto_update         = true,                       -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
-                neovim_image_text   = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
-                main_image          = "neovim",                   -- Main image display (either "neovim" or "file")
-                log_level           = nil,                        -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
-                debounce_timeout    = 10,                         -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
-                enable_line_number  = true,                       -- Displays the current line number instead of the current project
-                blacklist           = {},                         -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
-                buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
-                file_assets         = {},                         -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
-                show_time           = true,                       -- Show the timer
 
-                -- Rich Presence text options
-                editing_text        = "Editing %s",               -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
-                file_explorer_text  = "Pondering %s",             -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
-                git_commit_text     = "Committing changes",       -- Format string rendered when committing changes in git (either string or function(filename: string): string)
-                reading_text        = "Staring at %s",            -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
-                workspace_text      = "Working on %s",            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
-                line_number_text    = "Wrangling line %s/%s",     -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
+                auto_update         = true,
+                neovim_image_text   = "The One True Text Editor",
+                main_image          = "neovim",
+                log_level           = nil,
+                debounce_timeout    = 10,
+                enable_line_number  = true,
+                blacklist           = {},
+                buttons             = true,
+                file_assets         = {},
+                show_time           = true,
+
+
+                editing_text        = "Editing %s",
+                file_explorer_text  = function(explorer_name)
+                    if explorer_name == "NvimTree" then
+                        return "Browsing my filetree"
+                    end
+                   
+                    if explorer_name == "Telescope" then
+                        return "Searching files"
+                    end
+
+                    return string.format("Pondering %s", explorer_name)
+                end,
+                git_commit_text     = "Committing changes",
+                reading_text        = function(filename)
+                    if string.find(filename, "#toggleterm", 1, true) then
+                        return "Staring at my terminal"
+                    else
+                        return string.format("Staring at %s", filename)
+                    end
+                end,
+                workspace_text      = "Working on %s",
+                line_number_text    = "Tripping on line %s/%s",
             })
         end
     }
