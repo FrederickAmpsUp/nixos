@@ -99,3 +99,5 @@ vim.keymap.set("v", "<leader>ms", function()
 
   vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, lines)
 end)
+
+vim.keymap.set("n", "<C-w>f", "<C-w>|<C-w>_", { desc = "Maximize split both ways" })
