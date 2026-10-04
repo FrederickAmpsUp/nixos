@@ -21,5 +21,7 @@
         withVencord = true;
     })
     spotify
+
+    prismlauncher
   ];
 }
