@@ -18,4 +18,11 @@ vim.g.mapleader = " "
 require("options")
 require("keymaps")
 
-require("lazy").setup("plugins")
+require("lazy").setup({
+    spec = {
+        { import = "plugins" },
+    },
+    dev = {
+        path = "~/Code"
+    }
+})
